@@ -1,0 +1,11 @@
+1. build the html file to create basic layout of the game
+2. add CSS styling to the externally linked CSS file
+3. create a start game button
+4. select a word a random from an array when the buttom is clicked
+5. make sure that the word is displayed on the screen, however, every letter is replaced with an underscore
+6. each time a key is clicked, if it matches a letter in the word, that letter's underscore is replaced with the letter itself
+7. check for the win condition. If the entire word is displayed before timer runs out, the win tally is added one
+8. check for the loss condition. If the timer runs out before the entire word is displayed, the loss tally is added one
+9. create a timer that displays a countdown on the user's screen
+10. timer should connected with the result of the game and dissapears once the game is over
+11. after each game try, the result (win or loss) is logged to the localStorage

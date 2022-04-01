@@ -1,0 +1,22 @@
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#word {
+    flex-grow: 3;
+    background-color: aquamarine;
+    border: 1px solid maroon;
+}
+
+#result {
+    flex-grow: 1;
+    background-color: aquamarine;
+    border: 1px solid maroon;
+    margin-left: 5px;
+}
+
+h1,h2 {
+    text-align: center;
+}
