@@ -54,4 +54,20 @@ document.addEventListener("keydown", function(event){
     }
     selectedWordMasked = newMaskedWord; // update the masked form of the word in JS
     wordContent.textContent = selectedWordMasked; // update the proper HTML element with the new masked form of the word
+    if(checkForWin())
+    {
+        console.log("YOU WIN!!!");
+    }
 })
+
+function checkForWin()
+{
+    for(var i = 0; i < selectedWordMasked.length; i++)
+    {
+        if(selectedWordMasked.charAt(i) === "_")
+        {
+            return false;
+        }
+    }
+    return true;
+}
