@@ -1,14 +1,36 @@
 var startButton = document.querySelector("#start-game");
 var wordContent = document.querySelector("#word-content");
+var timer = document.querySelector("#timer");
+var lossCount = document.querySelector("#lossCount");
+var winCount = document.querySelector("#winCount");
 
 const wordBank = ["fuzzy", "guitar", "camera", "computer", "keyboard", "mouse", "microphone", "monitor", "coffee", "tea", "water", "sandwich", "pen", "pencil", "telephone"];
 var selectedWord;
 var selectedWordMasked;
+var timerValue;
+var timerStop = 0;
+var gameActivity = false;
+var lossIncrement = 0;
+var winIncrement = 0;
 
 startButton.addEventListener("click", function() {
+    gameActivity = true;
     selectedWord = selectGameWord();
     maskGameWord();
     wordContent.textContent = selectedWordMasked;
+    timerValue = 10;
+    timer.textContent = timerValue;
+    timerStop = window.setInterval(function() {
+        timerValue--;
+        if (timerValue > -1) {
+            timer.textContent = timerValue;
+        }
+        else {
+            window.clearInterval(timerStop);
+            lossIncrement++;
+            lossCount.textContent = lossIncrement;
+        }
+    }, 1000) 
 });
 
 // Selects a word at random from the word bank
@@ -57,6 +79,9 @@ document.addEventListener("keydown", function(event){
     if(checkForWin())
     {
         console.log("YOU WIN!!!");
+        winIncrement++;
+        winCount.textContent = winIncrement;
+        window.clearInterval(timerStop);
     }
 })
 
