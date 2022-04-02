@@ -13,6 +13,8 @@ var gameActivity = false;
 var lossIncrement = 0;
 var winIncrement = 0;
 
+checkForTotals();
+
 startButton.addEventListener("click", function() {
     gameActivity = true;
     selectedWord = selectGameWord();
@@ -29,6 +31,7 @@ startButton.addEventListener("click", function() {
             window.clearInterval(timerStop);
             lossIncrement++;
             lossCount.textContent = lossIncrement;
+            localStorage.setItem("Loss Total", lossIncrement);
         }
     }, 1000) 
 });
@@ -82,6 +85,7 @@ document.addEventListener("keydown", function(event){
         winIncrement++;
         winCount.textContent = winIncrement;
         window.clearInterval(timerStop);
+        localStorage.setItem("Win Total", winIncrement);
     }
 })
 
@@ -95,4 +99,11 @@ function checkForWin()
         }
     }
     return true;
+}
+
+function checkForTotals() {
+    winIncrement = localStorage.getItem("Win Total");
+    winCount.textContent = winIncrement;
+    lossIncrement = localStorage.getItem("Loss Total");
+    lossCount.textContent = lossIncrement;
 }
