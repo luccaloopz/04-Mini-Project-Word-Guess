@@ -3,6 +3,7 @@ var wordContent = document.querySelector("#word-content");
 var timer = document.querySelector("#timer");
 var lossCount = document.querySelector("#lossCount");
 var winCount = document.querySelector("#winCount");
+var message = document.querySelector("#message")
 
 const wordBank = ["fuzzy", "guitar", "camera", "computer", "keyboard", "mouse", "microphone", "monitor", "coffee", "tea", "water", "sandwich", "pen", "pencil", "telephone"];
 var selectedWord;
@@ -32,6 +33,7 @@ startButton.addEventListener("click", function() {
             lossIncrement++;
             lossCount.textContent = lossIncrement;
             localStorage.setItem("Loss Total", lossIncrement);
+            message.textContent = "Sorry, you lose."
         }
     }, 1000) 
 });
@@ -86,6 +88,7 @@ document.addEventListener("keydown", function(event){
         winCount.textContent = winIncrement;
         window.clearInterval(timerStop);
         localStorage.setItem("Win Total", winIncrement);
+        message.textContent = "You Win!"
     }
 })
 
